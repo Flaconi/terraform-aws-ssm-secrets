@@ -15,6 +15,8 @@ module "ssm" {
 module "secrets" {
   source = "github.com/terraform-aws-modules/terraform-aws-secrets-manager?ref=v1.1.2"
 
+  create = length(var.parameters) > 0
+
   tags = var.tags
 
   kms_key_id = "alias/aws/secretsmanager"
