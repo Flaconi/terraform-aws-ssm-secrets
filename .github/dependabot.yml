@@ -7,3 +7,6 @@ updates:
       day: monday
       time: "08:00"
       timezone: Europe/Berlin
+  - package-ecosystem: "terraform"
+    schedule:
+      interval: "weekly"

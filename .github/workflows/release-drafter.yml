@@ -1,3 +1,4 @@
+---
 name: Release Drafter
 
 on:
@@ -5,16 +6,7 @@ on:
     branches:
       - master
 
-permissions:
-  contents: read
-
 jobs:
   update_release_draft:
-    permissions:
-      contents: write
-      pull-requests: read
-    runs-on: ubuntu-latest
-    steps:
-      - uses: release-drafter/release-drafter@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    uses: Flaconi/github-actions/.github/workflows/release-drafter.yml@v1
+    secrets: inherit
