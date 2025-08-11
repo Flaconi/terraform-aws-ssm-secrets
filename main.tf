@@ -13,7 +13,7 @@ module "ssm" {
 }
 
 module "secrets" {
-  source = "github.com/terraform-aws-modules/terraform-aws-secrets-manager?ref=v1.3.1"
+  source = "github.com/terraform-aws-modules/terraform-aws-secrets-manager?ref=v2.0.0"
 
   create = length(var.parameters) > 0
 
