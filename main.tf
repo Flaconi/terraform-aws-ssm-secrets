@@ -1,10 +1,5 @@
-moved {
-  from = aws_ssm_parameter.this
-  to   = module.ssm.aws_ssm_parameter.this
-}
-
 module "ssm" {
-  source = "github.com/Flaconi/terraform-aws-ssm-store?ref=v1.2.0"
+  source = "github.com/Flaconi/terraform-aws-ssm-store?ref=v2.0.0"
 
   tags        = var.tags
   kms_alias   = var.kms_alias
