@@ -1,10 +1,16 @@
-module "ssm" {
-  source = "github.com/Flaconi/terraform-aws-ssm-store?ref=v2.0.0"
+data "aws_kms_key" "this" {
+  count  = anytrue([for parameter in var.parameters : parameter.type == "SecureString"]) ? 1 : 0
+  key_id = var.kms_alias
+}
 
-  tags        = var.tags
-  kms_alias   = var.kms_alias
-  name_prefix = var.name_prefix
-  parameters  = var.parameters
+resource "aws_ssm_parameter" "this" {
+  for_each = { for parameter in var.parameters : parameter.name => parameter }
+
+  name   = "${var.name_prefix}${each.value.name}"
+  type   = each.value.type
+  value  = each.value.value
+  key_id = each.value.type == "SecureString" ? one(data.aws_kms_key.this[*].arn) : null
+  tags   = var.tags
 }
 
 module "secrets" {
