@@ -11,6 +11,8 @@ resource "aws_ssm_parameter" "this" {
   value  = each.value.value
   key_id = each.value.type == "SecureString" ? one(data.aws_kms_key.this[*].arn) : null
   tags   = var.tags
+
+  overwrite = true
 }
 
 module "secrets" {
