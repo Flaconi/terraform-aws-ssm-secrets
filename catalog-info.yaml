@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terraform-aws-ssm-secrets
+  description: >
+    Terraform module to store different parameters to SSM and also as a secret
+  annotations:
+    github.com/project-slug: Flaconi/terraform-aws-ssm-secrets
+  tags:
+    - terraform
+    - aws
+    - ssm
+    - secrets-manager
+
+spec:
+  type: library
+  lifecycle: production
+  owner: group:platform
+  system: aws-infrastructure
+  providesApis: []
