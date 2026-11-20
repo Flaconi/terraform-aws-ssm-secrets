@@ -22,7 +22,7 @@ variable "parameters" {
     name  = string
     type  = optional(string, "SecureString") # String, StringList or SecureString
     value = string
-    tier  = optional(string, "Standard")     # Standard, Advanced or Intelligent-Tiering
+    tier  = optional(string, "Standard") # Standard, Advanced or Intelligent-Tiering
   }))
   default = []
 }
