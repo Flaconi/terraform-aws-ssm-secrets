@@ -79,6 +79,7 @@ list(object({
     name  = string
     type  = optional(string, "SecureString") # String, StringList or SecureString
     value = string
+    tier  = optional(string, "Standard") # Standard, Advanced or Intelligent-Tiering
   }))
 ```
 
